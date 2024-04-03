@@ -1,9 +1,6 @@
 #include <iostream>
-#include <ctime>
-#include <cmath>
 #include <cstdlib>
 #include <stdlib.h> 
-#include <vector>
 #include <stdio.h>
 using namespace std;
 
@@ -50,7 +47,7 @@ struct NODE {
     }
 
     // Pops nodes at the beginning of the linked list
-    void PopFront(NODE* head) {
+    void PopFront(NODE* &head) {
 
         if (isEmpty(head)) {
             return;
@@ -64,13 +61,13 @@ struct NODE {
         head = head->next;
         values = node2->value;
         delete node2;
-
+        keep--;
 
         cout << values << " removed" << endl;
     }
 
     // Pops nodes at the end of the linked list
-    void PopBack(NODE* tail) {
+    void PopBack(NODE* &tail) {
 
         if (isEmpty(tail)) {
             cout << "LIST IS EMPTY!!";
@@ -83,9 +80,8 @@ struct NODE {
         node2 = tail;
         tail = tail->previous;
         values = node2->value;
-
         delete node2;
-
+        keep--;
         cout << values << " removed" << endl;
     }
 
@@ -187,9 +183,11 @@ int main() {
             break;
         case 3:
             NODES.PopFront(head);
+            cin.ignore();
             break;
         case 4:
             NODES.PopBack(tail);
+            cin.ignore();
             break;
         case 5:
             NODES.displayForwardValues(head);
@@ -205,7 +203,7 @@ int main() {
 
         }
         cin.ignore();
-        //system("CLS");
+        system("CLS");
     }
 
 
