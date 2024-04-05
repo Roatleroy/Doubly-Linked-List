@@ -97,7 +97,7 @@ struct NODE {
 
         traverse = head;
 
-        while (values != 0) {
+        while (values !=  0) {
             cout << traverse->value;
             traverse = traverse->next;
             cout << " ";
